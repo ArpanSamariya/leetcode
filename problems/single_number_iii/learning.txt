@@ -1,3 +1,5 @@
+https://leetcode.com/problems/single-number-iii/discuss/1561914/C%2B%2B-or-Simple-Bit-Manipulation-or-O(N)-time-or-O(1)-Space
+
 Given that the arrray contains every element appearing twice except two numbers. We need to find those two numbers.
 If we xor all the numbers, then result = a^b where 'a' and 'b' are those numbers appearing once.
 We know that 'a' and 'b' are two distinct number, so their xor have atleast one set bit.
