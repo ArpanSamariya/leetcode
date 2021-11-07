@@ -1,2 +1,17 @@
+https://leetcode.com/discuss/general-discussion/665604/Important-and-Useful-links-from-all-over-the-LeetCode/
+
 https://leetcode.com/discuss/interview-question/1140451/Helpful-list-of-LeetCode-Posts-on-System-Design-at-Facebook-Google-Amazon-Uber-Microsoft
 https://leetcode.com/discuss/general-discussion/1144555/LeetCode's-Pick...-extended!?ref=problemset
+https://leetcode.com/discuss/study-guide/1490172/Dynamic-programming-is-simple
+https://leetcode.com/discuss/interview-experience/1532708/Tips-for-answering-few-tricky-behavioural-interview-questions
+Google/FB/Amazon/Apple/Indeed | Reject/Reject/Offer/Offer/Offer
+https://leetcode.com/discuss/interview-experience/1522247/My-journey-to-offers-and-rejections-FAANG-and-non-FAANG
+https://leetcode.com/discuss/interview-experience/1504211/Tier-3-fresher-to-Microsoft-SDE-1-Accepted
+https://leetcode.com/discuss/interview-experience/1503452/Google-L4-Offer-Facebook-E4-Offer
+https://leetcode.com/discuss/interview-experience/1497220/Facebook-phone-%2B-onsite-or-E4-or-USA-REJECT
+https://leetcode.com/discuss/interview-question/124739/Parking-Lot-Design-Using-OO-Design
+https://leetcode.com/discuss/interview-question/system-design/719253/Design-Facebook-%3A-System-Design-Interview
+https://leetcode.com/discuss/interview-question/system-design/124658/Design-URL-Shortening-service-like-TinyURL
+https://leetcode.com/discuss/interview-question/system-design/496042/Design-video-sharing-platform-like-Youtube
+https://leetcode.com/discuss/general-discussion/458695/Dynamic-Programming-Patterns
+
