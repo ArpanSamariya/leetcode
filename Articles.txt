@@ -15,3 +15,10 @@ https://leetcode.com/discuss/interview-question/system-design/719253/Design-Face
 https://leetcode.com/discuss/interview-question/system-design/124658/Design-URL-Shortening-service-like-TinyURL
 https://leetcode.com/discuss/interview-question/system-design/496042/Design-video-sharing-platform-like-Youtube
 https://leetcode.com/discuss/general-discussion/458695/Dynamic-Programming-Patterns
+
+
+https://leetcode.com/discuss/study-guide/669996/Greedy-for-Beginners-Problems-or-Sample-solutions
+https://leetcode.com/discuss/general-discussion/458695/Dynamic-Programming-Patterns
+https://leetcode.com/discuss/general-discussion/665604/important-and-useful-links-from-all-over-the-leetcode
+https://leetcode.com/discuss/general-discussion/1061059/ABCs-of-Greedy
+https://leetcode.com/explore/learn/card/dynamic-programming/630/an-introduction-to-dynamic-programming/4034/
