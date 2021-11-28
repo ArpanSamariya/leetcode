@@ -22,3 +22,5 @@ https://leetcode.com/discuss/general-discussion/458695/Dynamic-Programming-Patte
 https://leetcode.com/discuss/general-discussion/665604/important-and-useful-links-from-all-over-the-leetcode
 https://leetcode.com/discuss/general-discussion/1061059/ABCs-of-Greedy
 https://leetcode.com/explore/learn/card/dynamic-programming/630/an-introduction-to-dynamic-programming/4034/
+
+https://www.stratascratch.com/blog/how-to-use-leetcode-for-data-science-sql-interviews/
