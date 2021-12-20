@@ -9,29 +9,72 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+// class Solution {
+// public:
+//     vector<vector<int>> levelOrder(TreeNode* root) {
+        
+//         vector<vector<int>> ret;
+//         if(root == NULL){
+//             return ret;
+//         }
+//         stack<TreeNode*> st1;
+//         stack<TreeNode*> st2;
+//         TreeNode* tmp;
+//         vector<int> v;
+//         st1.push(root);
+        
+//         while(!st1.empty()){
+            
+//             tmp = st1.top();
+//             st1.pop();
+//             v.push_back(tmp->val);
+            
+//             if(tmp->left) st2.push(tmp->left);
+//             if(tmp->right)st2.push(tmp->right);
+            
+//             if(st1.empty()){
+//                 vector<int> vi(v);
+//                 ret.push_back(vi);
+//                 v.clear();
+//                 while(!st2.empty()){
+//                     tmp = st2.top();
+//                     st1.push(tmp);
+//                     st2.pop();
+//                 }
+//             }   
+//         }
+//         return ret;
+//     }
+// };
+
+
 class Solution {
 public:
-    vector<vector<int>> vv;
-    void dfs(TreeNode* root, int distance){
-        if(root == NULL) return;
-        if( distance < vv.size()){
-            vv[distance].push_back(root->val);    
-        }
-        else{
-            vector<int> n;
-            n.push_back(root->val);
-            vv.push_back(n);
-        }
-        
-        
-        dfs(root->left,distance+1);
-        dfs(root->right, distance+1);
-    }
     vector<vector<int>> levelOrder(TreeNode* root) {
         
-        dfs(root,0);
-        return vv;
-        // if(root == NULL)return vector<vector<int>>();
-        
+        vector<vector<int>> ret;
+        if(root == NULL){
+            return ret;
+        }
+        queue<TreeNode*> q;
+        TreeNode* tmp;
+        q.push(root);
+        int sz = 0;
+        while(!q.empty()){
+            sz = q.size();
+            vector<int> v;
+            for(int i = 0; i < sz; i++){
+                
+                tmp = q.front();
+                q.pop();
+                v.push_back(tmp->val);
+                
+                if(tmp->left)q.push(tmp->left);
+                if(tmp->right)q.push(tmp->right);
+                
+            }
+            ret.push_back(v);
+        }
+        return ret;
     }
 };
