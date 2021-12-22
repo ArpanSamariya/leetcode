@@ -11,25 +11,21 @@
  */
 class Solution {
 public:
-    bool isSame(TreeNode* left , TreeNode* right){
-           
-            if(left == NULL && right == NULL)return true;
-            if(left == NULL && right != NULL || right==NULL && left != NULL)return false;
-        
-            // && left->left==right->right && left->right == right->left)
-            bool n1 = isSame(left->left,right->right);
-            bool n2 = isSame(left->right, right->left);
-            bool n3 = (left->val == right->val);
-            return (n1&&n2)&&n3;
-        
-    }
-    
     bool isSymmetric(TreeNode* root) {
         
-        // TreeNode* leftSubTree = root->left;
-        // TreeNode* rightSubTree = root->right;
-        // if(leftSubTree->left == rightSubTree->right && leftSubTree->right == rightSubTree->left) ; 
-        if(root == NULL)return true;
-        return isSame(root->left, root->right);
+        if(!root) return true;
+        return helper(root->left, root->right);
+    }
+    
+    bool helper(TreeNode* l, TreeNode* r){
+        
+      
+        if(l == NULL || r == NULL){
+            return l == r;
+        }
+        if(l->val != r->val) return false;
+        
+        return helper(l->left, r->right) and helper(l->right, r->left);
+        
     }
 };
