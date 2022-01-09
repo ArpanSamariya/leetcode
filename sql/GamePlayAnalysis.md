@@ -55,3 +55,47 @@ FROM
   LEFT JOIN Activity b
   ON a.player_id = b.player_id AND a.event_date+1 = b.event_date;
 ```
+
+### 580
+* Remember where to put a table i.e left or right as per the ask of the problem,
+* handel case when something
+```
+select d.dept_name, SUM(CASE WHEN student_id IS NULL THEN 0 ELSE 1 END) as student_number from 
+department as d
+left join 
+student as s
+on d.dept_id = s.dept_id
+group by d.dept_name
+order by student_number desc, d.dept_name
+```
+
+### 585
+```
+select sum(tiv_2016) from insurance as ins
+inner join
+(SELECT  lat, lon, count(1) as cnt from insurance group by lat, lon having cnt = 1) i
+on
+i.lat = ins.lat
+and 
+i.lon = ins.lon
+inner join
+(select tiv_2015, count(tiv_2015) as cnt from insurance group by tiv_2015 having cnt > 1) tiv
+on 
+tiv.tiv_2015 = ins.tiv_2015
+```
+lat and lon can also be concatenated to make a single entity!
+```
+SELECT SUM(TIV_2016) AS TIV_2016
+FROM insurance
+WHERE CONCAT(LAT, ',', LON)
+    IN (SELECT CONCAT(LAT, ',', LON)
+       FROM insurance
+       GROUP BY LAT, LON
+       HAVING COUNT(1) = 1)
+AND TIV_2015 in
+    (SELECT TIV_2015
+    FROM insurance
+    GROUP BY TIV_2015
+    HAVING COUNT(1)>1)
+```
+
