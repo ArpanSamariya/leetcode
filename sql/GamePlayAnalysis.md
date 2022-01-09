@@ -237,3 +237,25 @@ a.id = b.p_id
   ) sub
  order by sub.id;
 ```
+
+### 612
+```SELECT min(round(sqrt(pow((a.x - b.x),2) + pow((a.y - b.y) ,2)),2)) as dist FROM point_2d as a 
+left join 
+point_2d b
+on
+a.x != b.x
+or
+a.y != b.y
+order by dist
+limit 1;
+```
+
+### 613
+```
+select min(abs(a.x - b.x)) from point a 
+left join 
+point b
+on
+a.x != b.x
+```
+
