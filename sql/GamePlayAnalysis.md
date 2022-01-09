@@ -98,4 +98,142 @@ AND TIV_2015 in
     GROUP BY TIV_2015
     HAVING COUNT(1)>1)
 ```
+* Use calculated values in having so as to remember concept and column selection in group by, having!
 
+### 586
+```
+select customer_number from orders group by customer_number order by count(1) desc limit 1;
+```
+* order by can have calculated values
+
+### 597
+```
+select IFNULL((round(q/p, 2)), 0.0) AS accept_rate
+from
+(select count(distinct sender_id, send_to_id) as p from friend_request) as t1,
+(select count(distinct requester_id, accepter_id ) as q from request_accepted) as t2
+```
+
+### 601
+Blog Sol
+```
+SELECT DISTINCT s1.*
+FROM stadium s1 JOIN stadium s2 JOIN stadium s3
+ON (s1.id = s2.id-1 AND s1.id = s3.id-2) OR
+ (s1.id = s2.id+1 AND s1.id = s3.id-1) OR
+ (s1.id = s2.id+1 AND s1.id = s3.id+2)
+    WHERE s1.people >= 100 AND s2.people >= 100 AND s3.people>=100
+  ORDER BY visit_date
+```
+My
+```
+SELECT distinct a.id, a.visit_date, a.people from
+stadium a
+inner join
+(select id from stadium where people > 100) b
+on
+b.id = a.id + 1
+inner join
+(select id from stadium where people > 100) c
+on
+c.id = a.id + 2
+where a.people > 100
+
+union 
+
+SELECT distinct a.id, a.visit_date, a.people from
+stadium a
+inner join
+(select id from stadium where people > 100) b
+on
+b.id = a.id - 1
+inner join
+(select id from stadium where people > 100) c
+on
+c.id = a.id + 1
+where a.people > 100
+
+union
+
+SELECT distinct a.id, a.visit_date, a.people from
+stadium a
+inner join
+(select id from stadium where people > 100) b
+on
+b.id = a.id - 1
+inner join
+(select id from stadium where people > 100) c
+on
+c.id = a.id - 2
+where a.people > 100
+```
+### 602
+```
+
+SELECT t.id, sum(t.num) AS num
+FROM (
+      (SELECT requester_id AS id, COUNT(1) AS num
+       FROM request_accepted
+       GROUP BY requester_id)
+      union all
+       (SELECT accepter_id AS id, COUNT(1) AS num
+        FROM request_accepted
+        GROUP BY accepter_id)) AS t
+GROUP BY t.id
+ORDER BY num DESC
+LIMIT 1;
+
+```
+### 603
+```
+SELECT distinct t1.seat_id from 
+cinema t1
+left join
+cinema t2
+on 
+t2.seat_id = t1.seat_id + 1
+or
+t2.seat_id = t1.seat_id - 1
+where 
+t1.free = 1 and 
+t2.free = 1
+order by t1.seat_id
+```
+blog sol
+```
+
+SELECT DISTINCT t1.seat_id
+FROM cinema AS t1 JOIN cinema AS t2
+ON abs(t1.seat_id-t2.seat_id)=1
+WHERE t1.free='1' AND t2.free='1'
+ORDER BY t1.seat_id
+
+```
+### 607
+```
+SELECT name from salesperson where sales_id not in (
+select sales_id from  
+orders 
+where 
+com_id not in (select com_id from company where name = 'RED')
+);
+```
+
+### 608
+```
+select distinct sub.id,
+case 
+	when sub.root is null then 'Root'
+    when sub.flag is not null then 'Inner'
+    when sub.flag is null then 'Leaf'
+END as type
+from (
+select a.id, a.p_id as root, b.p_id as flag
+from tree a
+left join
+tree b
+on
+a.id = b.p_id
+  ) sub
+ order by sub.id;
+```
